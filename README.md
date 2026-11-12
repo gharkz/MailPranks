@@ -1,5 +1,7 @@
 # Mail Pranks
 
+[Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3838443992)
+
 Feeling the urge to send prank packages packed with hostile monsters and NPCs, instead of just receiving them? Your friendly neighborhood slave traders and animal tamers now offer that very service!
 
 - Pick a creature, town, and recipient—or choose someone at random.
@@ -18,6 +20,8 @@ Custom UI follows your English, Japanese, or Simplified Chinese game setting. Ke
 
 ## 日本語
 
+[Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3838443992)
+
 敵対するモンスターやNPC入りのいたずら小包、受け取るだけでなく送ってみたくありませんか？ お近くの親切な奴隷商人や動物調教師が、その願いをかなえます！
 
 - 生き物、町、宛先を選択。宛先はおまかせも可能。
@@ -35,6 +39,8 @@ Custom UI follows your English, Japanese, or Simplified Chinese game setting. Ke
 追加UIはゲームの英語・日本語・簡体字中国語設定に対応。配達待ちの荷物がある間はModを有効にしてください。
 
 ## 简体中文
+
+[Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3838443992)
 
 总是收到装着敌对怪物和NPC的恶作剧包裹，想不想也寄几个出去？你身边热心友善的奴隶商人和驯兽师，现在就能帮你实现！
 
