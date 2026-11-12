@@ -4,7 +4,8 @@
   <id>gharkz.elin.mailpranks</id>
   <author>gharkz</author>
   <version>0.23.355</version>
-  <description>Feeling the urge to send prank packages packed with hostile monsters and NPCs, instead of just receiving them? Your friendly neighborhood slave traders and animal tamers now offer that very service!
+  <description>[quote]
+Feeling the urge to send prank packages packed with hostile monsters and NPCs, instead of just receiving them? Your friendly neighborhood slave traders and animal tamers now offer that very service!
 
 - Pick a creature, town, and recipient—or choose someone at random.
 - Pay 5% of the normal price (rounded up, minimum 1 oren). No refunds!
@@ -20,7 +21,12 @@
 
 Custom UI follows your English, Japanese, or Simplified Chinese game setting. Keep the mod enabled while deliveries are pending.
 
-日本語
+Japanese and Simplified Chinese translations: Codex (AI).
+
+Source: https://github.com/gharkz/MailPranks
+[/quote]
+
+[quote]
 敵対するモンスターやNPC入りのいたずら小包、受け取るだけでなく送ってみたくありませんか？ お近くの親切な奴隷商人や動物調教師が、その願いをかなえます！
 
 - 生き物、町、宛先を選択。宛先はおまかせも可能。
@@ -37,7 +43,12 @@ Custom UI follows your English, Japanese, or Simplified Chinese game setting. Ke
 
 追加UIはゲームの英語・日本語・簡体字中国語設定に対応。配達待ちの荷物がある間はModを有効にしてください。
 
-简体中文
+日本語・簡体字中国語の翻訳：Codex（AI翻訳）。
+
+ソースコード: https://github.com/gharkz/MailPranks
+[/quote]
+
+[quote]
 总是收到装着敌对怪物和NPC的恶作剧包裹，想不想也寄几个出去？你身边热心友善的奴隶商人和驯兽师，现在就能帮你实现！
 
 - 选择生物、城镇和收件人，也可以随机选人。
@@ -54,8 +65,10 @@ Custom UI follows your English, Japanese, or Simplified Chinese game setting. Ke
 
 新增界面跟随游戏的英语、日语或简体中文设置。还有待配送包裹时，请保持模组启用。
 
-Source / ソース / 源代码: https://github.com/gharkz/MailPranks
-Japanese and Chinese translations: Codex (AI).</description>
+日语和简体中文译文由Codex提供（AI翻译）。
+
+源代码: https://github.com/gharkz/MailPranks
+[/quote]</description>
   <tags>General,Gameplay,english,japanese,schinese</tags>
   <visibility>Public</visibility>
 </Meta>
