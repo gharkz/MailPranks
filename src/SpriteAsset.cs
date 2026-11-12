@@ -25,7 +25,9 @@ namespace MailPranks
                 output[(y + (32 - height) / 2) * 32 + x + (32 - width) / 2] = pixels[sy * source.width + sx];
             }
             tile.SetPixels32(output); tile.Apply();
-            return Sprite.Create(tile, new Rect(0, 0, 32, 32), new Vector2(0.5f, 0.5f), 32);
+            // Native inventory sprites use 100 pixels per unit; 32 makes UI.SetNativeSize
+            // enlarge the same 32px tile by 3.125x and overlap adjacent shop slots.
+            return Sprite.Create(tile, new Rect(0, 0, 32, 32), new Vector2(0.5f, 0.5f), 100);
         }
     }
 }

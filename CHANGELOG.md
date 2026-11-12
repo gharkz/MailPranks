@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.2.6
+
+Mail Pranks 0.2.6
+Fixed the Pranks ledger disappearing into Loytel's ordinary roster-ledger stack. It now stays separate in shop stock and when moved or sorted in inventories. Reopening Loytel's shop supplies the missing ledger without waiting for restock. Price remains one gold bar. Fixed the custom icon scale to fit a normal inventory slot.
+
+日本語
+いたずら台帳がロイテルの通常の名簿と重なって消える問題を修正。店の在庫やアイテムの移動・整理でも別々に保たれます。再入荷を待たず、店を開き直すと不足した台帳が追加されます。価格は金塊1個のままです。専用アイコンが通常のアイテム枠に収まるよう表示倍率も修正。
+
+简体中文
+修复恶作剧账簿与罗伊特尔的普通名册堆叠后消失的问题。商店库存及物品移动、整理时，两者现在保持分离。重新打开商店即可补上缺失的账簿，无需等待补货。价格仍为1根金条。修正专用图标的缩放，使其适合普通物品格。
+
+
 ## 0.2.5
 
 Mail Pranks 0.2.5

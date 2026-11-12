@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace MailPranks
 {
-    [BepInPlugin(Id, "Mail Pranks", "0.2.5")]
+    [BepInPlugin(Id, "Mail Pranks", "0.2.6")]
     public sealed class Plugin : BaseUnityPlugin
     {
         public const string Id = "gharkz.elin.mailpranks";
@@ -31,7 +31,7 @@ namespace MailPranks
             }
             harmony = new Harmony(Id);
             harmony.PatchAll(typeof(Plugin).Assembly);
-            Logger.LogInfo("Mail Pranks 0.2.5 loaded.");
+            Logger.LogInfo("Mail Pranks 0.2.6 loaded.");
         }
         internal void ReportMoonError(Exception error) => Logger.LogError(error);
         internal static void Guard(Action action)
@@ -89,7 +89,19 @@ namespace MailPranks
             var book = ThingGen.Create("book_roster");
             book.SetBool(PrankService.BookKey, true);
             book.SetInt(101, 1);
-            chest.AddThing(book);
+            chest.AddThing(book, tryStack: false);
+        }
+    }
+    [HarmonyPatch(typeof(Thing), nameof(Thing.CanStackTo))]
+    internal static class LedgerStack
+    {
+        static bool Prefix(Thing __instance, Thing to, ref bool __result)
+        {
+            // Native stacking ignores our saved marker. Never let a ledger turn into a roster
+            // (or a roster become a prank ledger), including after purchase and inventory sorting.
+            if (to == null || __instance.GetBool(PrankService.BookKey) == to.GetBool(PrankService.BookKey)) return true;
+            __result = false;
+            return false;
         }
     }
     [HarmonyPatch(typeof(Trait), nameof(Trait.SetName))]
