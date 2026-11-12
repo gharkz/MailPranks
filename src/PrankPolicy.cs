@@ -8,6 +8,8 @@ namespace MailPranks
         public const int RestockHours = 4 * 24;
         public const int PackageCapacity = 8;
         public const int OpeningAffinityLoss = 5;
+        public static bool DeliveryTile(bool blocked, bool occupied, bool installedContainerConflict)
+            => !blocked && !occupied && !installedContainerConflict;
         public static bool MoonArrivalReady(bool resolved, bool destinationLoaded, bool moongateInstance, bool loading, bool progressActive)
             => resolved && destinationLoaded && moongateInstance && !loading && !progressActive;
         public static int PackageCount(int count) => count <= 0 ? 0 : (count - 1) / PackageCapacity + 1;

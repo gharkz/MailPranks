@@ -138,7 +138,7 @@ namespace MailPranks
                 var already = EClass._map.charas.Concat(EClass._map.deadCharas).FirstOrDefault(c => c.GetStr(PrankService.MarkerKey) == d.Id);
                 if (already != null) { d.Status = "opened"; if (creature != null) cargo.list.Remove(creature); continue; }
                 if (creature == null) { d.Status = "missing"; continue; }
-                Point spot = FreeAdjacent(center);
+                Point spot = FreeAdjacent(center, placePackage: false);
                 if (spot == null) break; // Keep the opened package and remaining cargo; retry when space clears.
                 var previouslyPeaceful = new HashSet<int>(EClass._map.charas
                     .Where(c => PrankService.Resident(c) && !c.IsHostile(creature)).Select(c => c.uid));
@@ -178,13 +178,13 @@ namespace MailPranks
         {
             foreach (var thing in roots) { yield return thing; foreach (var nested in Walk(thing.things)) yield return nested; }
         }
-        private static Point FreeAdjacent(Point center)
+        private static Point FreeAdjacent(Point center, bool placePackage = true)
         {
             for (int dx = -1; dx <= 1; dx++) for (int dz = -1; dz <= 1; dz++)
             {
                 if (dx == 0 && dz == 0) continue;
                 var p = new Point(center.x + dx, center.z + dz);
-                if (p.IsInBounds && !p.IsBlocked && !p.HasChara && p.cell.Things.Count == 0) return p;
+                if (DeliverySpace.CanLand(p, placePackage)) return p;
             }
             return null;
         }

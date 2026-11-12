@@ -18,8 +18,7 @@ namespace MailPranks
                 {
                     if (System.Math.Max(System.Math.Abs(dx), System.Math.Abs(dz)) != radius) continue;
                     var p = new Point(EClass.pc.pos.x + dx, EClass.pc.pos.z + dz);
-                    if (p.IsInBounds && !p.IsBlocked && !p.HasChara && p.cell.Things.Count == 0 &&
-                        member.CanMoveTo(p, false) && EClass.pc.CanSeeLos(p)) spot = p;
+                    if (DeliverySpace.CanLand(p, placePackage: false) && EClass.pc.CanSeeLos(p)) spot = p;
                 }
                 if (spot == null) continue;
                 member.Teleport(spot, silent: true, force: true);

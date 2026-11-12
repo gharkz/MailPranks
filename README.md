@@ -59,3 +59,16 @@ Custom UI follows your English, Japanese, or Simplified Chinese game setting. Ke
 新增界面跟随游戏的英语、日语或简体中文设置。还有待配送包裹时，请保持模组启用。
 
 Japanese and Chinese translations: Codex (AI). / 日本語・中国語訳：Codex（AI）。/ 日语及中文翻译：Codex（AI）。
+
+## Screenshots / スクリーンショット / 截图
+
+![Trader options and separate restock countdowns](screenshots/01-trader-options-en.jpg)
+
+![Slave-trader prank stock](screenshots/02-prank-stock-en.jpg)
+
+![Animal-tamer prank stock](screenshots/10-animal-stock-en.jpg)
+
+![Recipients; dead NPCs cannot be selected](screenshots/04-recipients-en.jpg)
+
+![Send yourself to a town or moongate](screenshots/06-self-destinations-en.jpg)
+

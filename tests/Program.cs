@@ -12,6 +12,10 @@ internal static class Program
     static void Main()
     {
         Check(PrankPolicy.Price(0) == 1, "minimum");
+        Check(PrankPolicy.DeliveryTile(false,false,false), "clear teleport landing independent of origin or loose items");
+        Check(!PrankPolicy.DeliveryTile(true,false,false), "blocked destination rejected");
+        Check(!PrankPolicy.DeliveryTile(false,true,false), "occupied destination rejected");
+        Check(!PrankPolicy.DeliveryTile(false,false,true), "installed container conflict rejected");
         Check(PrankPolicy.MoonArrivalReady(true, true, true, false, false), "moongate arrival after resolution and loading");
         Check(!PrankPolicy.MoonArrivalReady(false, true, true, false, false), "no placement before action resolves");
         Check(!PrankPolicy.MoonArrivalReady(true, false, true, false, false), "no placement in departure map");

@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.2.5
+
+Mail Pranks 0.2.5
+Fixed false "no delivery space" failures: self-delivery and party arrival now check the destination tile, not walking paths from the arrival gate. Loose dropped items no longer block mail placement. Walls, characters, and conflicting installed furniture still block package placement.
+Added five tightly cropped English UI screenshots covering trader choices, slave and animal stock, recipients, and self-delivery destinations.
+
+日本語
+「配達先に空きがない」と誤判定する問題を修正。自分と仲間の到着は、ゲートからの歩行経路ではなく着地点を確認します。地面に落ちたアイテムは郵便の設置を妨げません。壁・キャラクター・設置済み家具との重なりは引き続き回避します。
+商人の選択肢、奴隷・動物の在庫、宛先、自分の発送先を紹介する英語UIのスクリーンショット5枚を追加。必要な画面部分のみ掲載。
+
+简体中文
+修复错误的“没有配送空间”提示：寄送自己和队友抵达时检查目标格，而非从入口出发的行走路径。地上的掉落物不再阻止放置邮件包裹，仍会避开墙壁、角色及冲突的已安装家具。
+新增5张裁剪后的英语界面截图，展示商人选项、奴隶和动物库存、收件人及寄送自己的目的地。
+
+
 ## 0.2.4
 
 Mail Pranks 0.2.4

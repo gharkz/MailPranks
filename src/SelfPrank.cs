@@ -74,7 +74,7 @@ namespace MailPranks
                 {
                     if (dx == 0 && dz == 0) continue;
                     var p = new Point(target.pos.x + dx, target.pos.z + dz);
-                    if (p.IsInBounds && !p.IsBlocked && !p.HasChara && p.cell.Things.Count == 0 && EClass.pc.CanMoveTo(p, false)) spot = p;
+                    if (DeliverySpace.CanLand(p)) spot = p;
                 }
             }
             // Consume once even on failure; never teleport again on a later turn or reload.
