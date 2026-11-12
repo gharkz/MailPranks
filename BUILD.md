@@ -4,7 +4,7 @@ Run `dotnet build -c Release`. Set the `ElinGamePath` MSBuild property if Elin i
 
 The build does not install anything. The package in `dist/MailPranks` needs its DLL, manifest, and `assets/ledger.png` together.
 
-Release version: 0.2.3. Package compatibility: 0.23.355.
+Release version: 0.2.4. Package compatibility: 0.23.355.
 
 Self-delivery gathers living, unattached party members already in the destination onto nearby visible free tiles after player placement. Native host synchronization carries mounts/symbiotes. New deliveries use ThingGen.CreateCardboardBox, the native empty mail container, with a scoped TraitContainer.Open hook. Legacy parcel opening remains supported.
 
@@ -15,3 +15,5 @@ The ledger uses native book_roster with a private marker, localized name and cus
 Each trader has a separate save-integrated SlaverData for pranks, using native species generation and a four-day restock timer. Native localized nextRestock formatting shows the remaining time. Normal slave/pet stock is never consumed or refreshed by this list.
 
 Validation: offline policy/localization checks and native startup/serializer checks pass. Moongate gameplay was user-tested; the companion gathering and installed-container corrections still need a complete arrival playthrough.
+
+Town duel hostility overlays the native hostility getter without changing original faction hostility. Zone.ResetHostility clears duel markers and restores saved moongate originals before native reset, including incognito.

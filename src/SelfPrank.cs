@@ -7,7 +7,7 @@ namespace MailPranks
 {
     internal static class SelfPrank
     {
-        internal const int PendingKey = 1749236806, DuelKey = 1749236807;
+        internal const int PendingKey = 1749236806, DuelKey = 1749236807, MoonOriginalKey = 1749236808;
         internal sealed class Request { public int TownUid; public int TargetUid; public bool Moongate; public bool Resolved; public string Token; }
         internal static bool IsDuelTarget(Chara c) => c != null && PrankService.Ready && c.GetInt(DuelKey) == EClass.pc.uid;
         internal static bool IsPair(Chara a, Chara b) => a != null && b != null &&
@@ -91,6 +91,7 @@ namespace MailPranks
                 {
                     bool newlyAngry = !resident.IsHostile(EClass.pc);
                     resident.SetInt(DuelKey, 0);
+                    if (resident.GetInt(MoonOriginalKey) == 0) resident.SetInt(MoonOriginalKey, (int)resident.c_originalHostility + 100);
                     resident.c_originalHostility = Hostility.Enemy;
                     resident.SetHostility(Hostility.Enemy);
                     resident.SetEnemy(EClass.pc);
@@ -104,6 +105,35 @@ namespace MailPranks
             EClass.pc.SetEnemy(target);
             target.SetEnemy(EClass.pc);
             if (newlyHostile && !target.IsPCParty) target.TalkRaw(Text.Reaction(EClass.rnd(6)));
+        }
+    }
+
+    // Native hover text, interaction choices, and combat reacquisition read this property.
+    // Overlay the saved duel marker without changing the NPC's original faction hostility.
+    [HarmonyPatch(typeof(Chara), nameof(Chara.hostility), MethodType.Getter)]
+    internal static class SelfPrankHostility
+    {
+        static void Postfix(Chara __instance, ref Hostility __result)
+        {
+            if (SelfPrank.IsDuelTarget(__instance)) __result = Hostility.Enemy;
+        }
+    }
+
+    [HarmonyPatch(typeof(Zone), nameof(Zone.ResetHostility))]
+    internal static class ResetPrankHostility
+    {
+        static void Prefix(Zone __instance)
+        {
+            if (!PrankService.Ready || __instance != EClass._zone) return;
+            foreach (var c in EClass._map.charas)
+            {
+                c.SetInt(SelfPrank.DuelKey, 0);
+                int original = c.GetInt(SelfPrank.MoonOriginalKey);
+                if (original == 0) continue;
+                c.c_originalHostility = (Hostility)(original - 100);
+                c.SetInt(SelfPrank.MoonOriginalKey, 0);
+            }
+            // Native reset now restores hostility and clears combat targets normally.
         }
     }
 

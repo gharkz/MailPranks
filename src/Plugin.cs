@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace MailPranks
 {
-    [BepInPlugin(Id, "Mail Pranks", "0.2.3")]
+    [BepInPlugin(Id, "Mail Pranks", "0.2.4")]
     public sealed class Plugin : BaseUnityPlugin
     {
         public const string Id = "gharkz.elin.mailpranks";
@@ -31,7 +31,7 @@ namespace MailPranks
             }
             harmony = new Harmony(Id);
             harmony.PatchAll(typeof(Plugin).Assembly);
-            Logger.LogInfo("Mail Pranks 0.2.3 loaded.");
+            Logger.LogInfo("Mail Pranks 0.2.4 loaded.");
         }
         internal void ReportMoonError(Exception error) => Logger.LogError(error);
         internal static void Guard(Action action)
@@ -109,6 +109,7 @@ namespace MailPranks
             if (SelfPrank.IsPair(__instance, c)) { __result = true; return; }
             // Companions should not inherit the player's duel target through native pc.enemy handling.
             if (SelfPrank.IsDuelTarget(c) && __instance.IsPCParty && !__instance.IsPC) { __result = false; return; }
+            if (SelfPrank.IsDuelTarget(__instance) && c.IsPCParty && !c.IsPC) { __result = false; return; }
             if ((__instance.GetStr(PrankService.MarkerKey) != null && PrankService.Resident(c)) ||
                 (c.GetStr(PrankService.MarkerKey) != null && PrankService.Resident(__instance))) __result = true;
         }
