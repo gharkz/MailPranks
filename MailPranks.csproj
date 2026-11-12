@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Authors>gharkz</Authors>
+    <Version>0.2.3</Version>
+    <ElinGamePath Condition="'$(ElinGamePath)' == ''">X:/SteamLibrary/steamapps/common/Elin</ElinGamePath>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <OutputPath>dist/MailPranks/</OutputPath>
+    <GenerateDependencyFile>false</GenerateDependencyFile>
+    <DebugType>none</DebugType>
+    <DebugSymbols>false</DebugSymbols>
+    <Deterministic>true</Deterministic>
+    <PathMap>$(MSBuildProjectDirectory)=/src/MailPranks</PathMap>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="src/*.cs" />
+    <Reference Include="$(ElinGamePath)/Elin_Data/Managed/Elin.dll" Private="false" />
+    <Reference Include="$(ElinGamePath)/Elin_Data/Managed/UniTask.dll" Private="false" />
+    <Reference Include="$(ElinGamePath)/Elin_Data/Managed/Plugins.UI.dll" Private="false" />
+    <Reference Include="$(ElinGamePath)/Elin_Data/Managed/Plugins.BaseCore.dll" Private="false" />
+    <Reference Include="$(ElinGamePath)/Elin_Data/Managed/Newtonsoft.Json.dll" Private="false" />
+    <Reference Include="$(ElinGamePath)/Elin_Data/Managed/UnityEngine.dll" Private="false" />
+    <Reference Include="$(ElinGamePath)/Elin_Data/Managed/UnityEngine.CoreModule.dll" Private="false" />
+    <Reference Include="$(ElinGamePath)/Elin_Data/Managed/UnityEngine.ImageConversionModule.dll" Private="false" />
+    <Reference Include="$(ElinGamePath)/Elin_Data/Managed/UnityEngine.UI.dll" Private="false" />
+    <Reference Include="$(ElinGamePath)/Elin_Data/Managed/UnityEngine.TextRenderingModule.dll" Private="false" />
+    <Reference Include="$(ElinGamePath)/BepInEx/core/BepInEx.Core.dll" Private="false" />
+    <Reference Include="$(ElinGamePath)/BepInEx/core/BepInEx.Unity.dll" Private="false" />
+    <Reference Include="$(ElinGamePath)/BepInEx/core/0Harmony.dll" Private="false" />
+    <None Include="package.xml" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="preview.jpg" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="assets/ledger.png" CopyToOutputDirectory="PreserveNewest" Condition="Exists('assets/ledger.png')" />
+  </ItemGroup>
+</Project>

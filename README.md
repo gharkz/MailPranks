@@ -1,0 +1,55 @@
+# Mail Pranks
+
+Feeling the urge to send prank packages packed with hostile monsters and NPCs, instead of just receiving them? Your friendly neighborhood slave traders and animal tamers now offer that very service!
+
+- Pick a creature, town, and recipient—or choose someone at random.
+- Pay 5% of the normal price (rounded up, minimum 1 oren). No refunds!
+- Separate prank stock restocks every 4 days. The dialogue shows the countdown.
+- Bring the recipient into view: packages appear beside them, with up to 8 creatures per box. Extras get another box.
+- You or the recipient can open them. Each box the NPC opens costs 5 affinity; open it yourself first to avoid the penalty.
+- Or send yourself for free! Pop out of an empty package beside the target. Only you and the target become enemies; existing hostility, including guards reacting to karma, still applies.
+- Your party arrives beside you, too. Mail containers are properly placed, including the empty one beneath you.
+- Send yourself through a random or saved moongate, too: no recipient picker, arrival beside a random resident after loading, and the whole destination turns hostile!
+- Only NPCs made hostile by an opening shout reactions. Your party stays out of the banter.
+- All local NPCs are listed; dead names are red and unselectable.
+- Buy a Pranks ledger from Loytel for 1 gold bar to track deliveries.
+
+Custom UI follows your English, Japanese, or Simplified Chinese game setting. Keep the mod enabled while deliveries are pending.
+
+## 日本語
+
+敵対するモンスターやNPC入りのいたずら小包、受け取るだけでなく送ってみたくありませんか？ お近くの親切な奴隷商人や動物調教師が、その願いをかなえます！
+
+- 生き物、町、宛先を選択。宛先はおまかせも可能。
+- 料金は通常価格の5％（切り上げ、最低1オレン）。返金不可！
+- いたずら専用の在庫は4日ごとに補充。会話の選択肢に残り時間を表示。
+- 宛先の住人が視界に入ると、その隣に配達。1箱に最大8体、入りきらない分は別の箱へ。
+- プレイヤーか宛先の住人が開封可能。住人が開けた箱1個につき好感度−5。先に自分で開ければ低下なし。
+- 自分の発送は無料！ 宛先の隣の空箱から飛び出し、相手とだけ敵対。カルマによる衛兵の敵対など、既存の敵対関係は変わりません。
+- 仲間も一緒に近くへ到着。荷物はおなじみの郵便用コンテナです。
+- ランダムまたは保存済みのムーンゲートにも自分を発送可能。宛先の住人選択はなく、読み込み後にランダムな住人の隣へ到着し、その場所の住人全員が敵対！
+- 開封によって敵対したNPCだけが反応の台詞を発します。仲間は発しません。
+- その場所のNPCを一覧表示。死亡者は赤字で選択不可。
+- ロイテルから金塊1個でいたずら台帳を購入し、配達状況を確認。
+
+追加UIはゲームの英語・日本語・簡体字中国語設定に対応。配達待ちの荷物がある間はModを有効にしてください。
+
+## 简体中文
+
+总是收到装着敌对怪物和NPC的恶作剧包裹，想不想也寄几个出去？你身边热心友善的奴隶商人和驯兽师，现在就能帮你实现！
+
+- 选择生物、城镇和收件人，也可以随机选人。
+- 费用为正常价格的5%（向上取整，最低1奥伦）。不退款！
+- 恶作剧使用独立库存，每4天补货；对话选项显示倒计时。
+- 收件人进入视野后，包裹出现在其身旁。每箱最多8只，超出部分另装一箱。
+- 你或收件人都能拆封。NPC每拆一箱，好感度降低5点；你先拆则不扣好感度。
+- 也能免费寄送自己！从目标身旁的空包裹里跳出来，只有你和目标互相敌对。原有敌意仍生效，包括卫兵因道德值而敌视你。
+- 队友也会一起出现在你身旁。包裹使用熟悉的邮件包裹容器。
+- 也能把自己寄往随机或已保存的月之门目的地：不选收件人，加载完成后出现在随机居民身旁，当地所有居民都会敌对！
+- 只有因拆封而变为敌对的NPC会喊出反应台词，你的队友不会参与。
+- 列出当地所有NPC；已死亡者显示为红色且不可选择。
+- 向罗伊特尔支付1根金条购买恶作剧账簿，追踪配送情况。
+
+新增界面跟随游戏的英语、日语或简体中文设置。还有待配送包裹时，请保持模组启用。
+
+Japanese and Chinese translations: Codex (AI). / 日本語・中国語訳：Codex（AI）。/ 日语及中文翻译：Codex（AI）。
