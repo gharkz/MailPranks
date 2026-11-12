@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace MailPranks
 {
@@ -8,6 +9,7 @@ namespace MailPranks
         public const int RestockHours = 4 * 24;
         public const int PackageCapacity = 8;
         public const int OpeningAffinityLoss = 5;
+        public const int HistoryLimit = 30;
         public static bool DeliveryTile(bool blocked, bool occupied, bool installedContainerConflict)
             => !blocked && !occupied && !installedContainerConflict;
         public static bool MoonArrivalReady(bool resolved, bool destinationLoaded, bool moongateInstance, bool loading, bool progressActive)
@@ -42,6 +44,18 @@ namespace MailPranks
         public int Schema = 2;
         public List<Delivery> Deliveries = new List<Delivery>();
         public List<Bundle> Bundles = new List<Bundle>();
+        public List<Delivery> Recent() => Deliveries.AsEnumerable().Reverse().Take(PrankPolicy.HistoryLimit).ToList();
+        public bool TrimHistory()
+        {
+            var recent = new HashSet<string>(Recent().Select(d => d.Id));
+            var activeBundles = new HashSet<string>(Bundles.Where(b => !b.Closed).Select(b => b.Id));
+            int removed = Deliveries.RemoveAll(d => !recent.Contains(d.Id) &&
+                (d.Status == "opened" || d.Status == "missing") &&
+                (d.BundleId == null || !activeBundles.Contains(d.BundleId)));
+            var referenced = new HashSet<string>(Deliveries.Where(d => d.BundleId != null).Select(d => d.BundleId));
+            removed += Bundles.RemoveAll(b => b.Closed && !referenced.Contains(b.Id));
+            return removed != 0;
+        }
         public void Migrate()
         {
             if (Schema != 1) return;

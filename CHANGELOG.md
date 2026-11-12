@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.2.7
+
+Mail Pranks 0.2.7
+The Pranks ledger now shows only the latest 30 entries, newest first, in a fixed-size scrollable window. Older completed records and unused closed-package records are pruned. Pending deliveries and partially opened packages remain intact. NPC recipient selection is unchanged.
+
+日本語
+いたずら台帳を固定サイズのスクロール画面に変更し、最新30件を新しい順に表示。古い完了済み履歴と不要になった終了済み小包の記録を整理します。配達待ちや中身を出し終えていない小包は保持。NPCの宛先選択は変更ありません。
+
+简体中文
+恶作剧账簿改为固定大小的可滚动窗口，仅显示最近30条记录，新记录在前。清理旧的已完成记录及不再使用的已结束包裹记录。待配送任务和尚未放完内容的包裹保持不变。NPC收件人选择不变。
+
+
 ## 0.2.6
 
 Mail Pranks 0.2.6

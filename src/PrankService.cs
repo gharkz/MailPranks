@@ -40,10 +40,13 @@ namespace MailPranks
             if (ledger == null) throw new InvalidOperationException("Null prank ledger.");
             ledger.Migrate();
             ledger.Validate();
+            if (ledger.TrimHistory()) Write(ledger);
             return ledger;
         }
         internal static void Write(Ledger ledger)
         {
+            ledger.Validate();
+            ledger.TrimHistory();
             ledger.Validate();
             EClass.pc.SetStr(LedgerKey, JsonConvert.SerializeObject(ledger));
         }

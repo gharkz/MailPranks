@@ -4,7 +4,7 @@ Run `dotnet build -c Release`. Set the `ElinGamePath` MSBuild property if Elin i
 
 The build does not install anything. The package in `dist/MailPranks` needs its DLL, manifest, and `assets/ledger.png` together.
 
-Release version: 0.2.6. Package compatibility: 0.23.355.
+Release version: 0.2.7. Package compatibility: 0.23.355.
 
 Self-delivery gathers living, unattached party members already in the destination onto nearby visible free tiles after player placement. Native host synchronization carries mounts/symbiotes. New deliveries use ThingGen.CreateCardboardBox, the native empty mail container, with a scoped TraitContainer.Open hook. Legacy parcel opening remains supported.
 

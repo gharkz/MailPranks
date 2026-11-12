@@ -46,6 +46,26 @@ internal static class Program
         old.Migrate(); Check(old.Bundles.Count == 1, "migration idempotent");
         var history = new Ledger { Schema = 1 }; var past = Entry(); past.Status = "opened"; past.ParcelUid = 41; history.Deliveries.Add(past);
         history.Migrate(); history.Validate(); Check(history.Bundles[0].Closed && history.Bundles[0].Opened && !history.Bundles[0].AffinityCharged, "old history never retroactively charged");
+        var bounded = new Ledger();
+        for (int i = 0; i < 100; i++)
+        {
+            var d = Entry(); d.Id = "history-" + i; d.Status = "opened"; d.BundleId = d.Id;
+            bounded.Deliveries.Add(d); bounded.Bundles.Add(new Bundle { Id=d.Id, TownUid=1, Closed=true });
+        }
+        Check(bounded.TrimHistory(), "old completed history pruned"); bounded.Validate();
+        Check(bounded.Deliveries.Count == 30 && bounded.Bundles.Count == 30, "completed history and orphan bundles bounded");
+        Check(bounded.Recent()[0].Id == "history-99" && bounded.Recent()[29].Id == "history-70", "latest thirty shown newest first");
+        Check(!bounded.TrimHistory(), "history trim idempotent");
+        var pending = Entry(); pending.Id = "pending-old"; pending.Status = "delivered"; pending.BundleId="active";
+        var partial = Entry(); partial.Id = "partial-old"; partial.Status="opened"; partial.BundleId="active";
+        bounded.Bundles.Add(new Bundle { Id="active",TownUid=1 });
+        bounded.Deliveries.Insert(0,pending); bounded.Deliveries.Insert(1,partial);
+        bounded.TrimHistory(); bounded.Validate();
+        Check(bounded.Deliveries.Contains(pending) && bounded.Deliveries.Contains(partial), "old active delivery and partial package contents retained");
+        Check(bounded.Recent().Count == 30, "visible list capped with additional active deliveries");
+        pending.Status="opened"; bounded.Bundles.Find(b=>b.Id=="active").Closed=true;
+        bounded.TrimHistory(); bounded.Validate();
+        Check(bounded.Deliveries.Count == 30 && bounded.Bundles.Count == 30, "old active records pruned only after package completes");
         foreach (var language in new[] { "EN", "JP", "CN", "FR", null })
         {
             Lang.langCode = language;

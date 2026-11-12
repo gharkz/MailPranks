@@ -50,14 +50,16 @@ namespace MailPranks
         internal static void ShowLedger()
         {
             if (!PrankService.Ready) return;
-            var entries = PrankService.Read().Deliveries.AsEnumerable().Reverse().ToList();
+            var entries = PrankService.Read().Recent();
             if (entries.Count == 0) { Dialog.Ok(Text.Empty); return; }
-            Dialog.List(Text.Ledger, entries, d => $"{d.CreatureName} → {d.TownName}: {Text.Status(d.Status)}", (index, _) =>
+            var layer = EClass.ui.AddLayer<LayerList>();
+            layer.SetHeader(Text.RecentHistory);
+            layer.SetList2(entries, d => $"{d.CreatureName} → {d.TownName}: {Text.Status(d.Status)}", (d, _) =>
             {
-                var d = entries[index];
+                layer.Close();
                 EClass.core.actionsNextFrame.Add(() => Dialog.Ok($"{d.CreatureName} → {d.TownName}\n{(d.TargetUid == 0 ? Text.Anyone : d.TargetName)}\n{Text.Pick(d.Cost + " orens", d.Cost + "オレン", d.Cost + "奥伦")}\n{Text.Status(d.Status)}"));
-                return true;
-            }, canCancel: true);
+            }, null, autoClose: false);
+            layer.SetSize(620, 520);
         }
     }
     public sealed class PrankStock : BaseListPeople

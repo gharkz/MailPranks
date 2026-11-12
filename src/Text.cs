@@ -34,6 +34,7 @@ namespace MailPranks
         internal static string Stale => Pick("The stock or destination changed. Please choose again.", "在庫か送り先が変わりました。選び直してください。", "库存或目的地已变化，请重新选择。");
         internal static string Error => Pick("Mail Pranks paused after an error. See the game log.", "エラーのためいたずら郵便を停止しました。ログを確認してください。", "恶作剧邮件因错误暂停，请查看游戏日志。");
         internal static string Empty => Pick("No pranks yet.", "まだ発送履歴はありません。", "暂无恶作剧记录。");
+        internal static string RecentHistory => Pick("Pranks ledger — latest 30", "いたずら台帳 — 最新30件", "恶作剧账簿——最近30条");
         internal static string Status(string status) => status == "opened" ? Pick("Opened", "開封済み", "已拆封") :
             status == "delivered" ? Pick("Waiting to be opened", "開封待ち", "等待拆封") :
             status == "waiting" ? Pick("Waiting for space beside the recipient", "宛先の住人の隣に空きができるまで待機", "等待收件人旁边有空位") :

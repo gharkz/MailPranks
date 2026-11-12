@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace MailPranks
 {
-    [BepInPlugin(Id, "Mail Pranks", "0.2.6")]
+    [BepInPlugin(Id, "Mail Pranks", "0.2.7")]
     public sealed class Plugin : BaseUnityPlugin
     {
         public const string Id = "gharkz.elin.mailpranks";
@@ -31,7 +31,7 @@ namespace MailPranks
             }
             harmony = new Harmony(Id);
             harmony.PatchAll(typeof(Plugin).Assembly);
-            Logger.LogInfo("Mail Pranks 0.2.6 loaded.");
+            Logger.LogInfo("Mail Pranks 0.2.7 loaded.");
         }
         internal void ReportMoonError(Exception error) => Logger.LogError(error);
         internal static void Guard(Action action)
