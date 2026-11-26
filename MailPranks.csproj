@@ -3,7 +3,7 @@
     <TargetFramework>net472</TargetFramework>
     <LangVersion>latest</LangVersion>
     <Authors>gharkz</Authors>
-    <Version>0.2.7</Version>
+    <Version>0.2.8</Version>
     <ElinGamePath Condition="'$(ElinGamePath)' == ''">X:/SteamLibrary/steamapps/common/Elin</ElinGamePath>
     <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
@@ -16,6 +16,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="src/*.cs" />
+    <Compile Include="src/Support/*.cs" />
+    <Reference Include="$(ElinGamePath)/Elin_Data/Managed/Plugins.Modding.dll" Private="false" />
+    <Reference Include="$(ElinGamePath)/Elin_Data/Managed/Plugins.Sound.dll" Private="false" />
+    <Reference Include="$(ElinGamePath)/Elin_Data/Managed/UnityEngine.UIModule.dll" Private="false" />
+    <Reference Include="$(ElinGamePath)/Elin_Data/Managed/UnityEngine.IMGUIModule.dll" Private="false" />
     <Reference Include="$(ElinGamePath)/Elin_Data/Managed/Elin.dll" Private="false" />
     <Reference Include="$(ElinGamePath)/Elin_Data/Managed/UniTask.dll" Private="false" />
     <Reference Include="$(ElinGamePath)/Elin_Data/Managed/Plugins.UI.dll" Private="false" />

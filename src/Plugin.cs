@@ -7,10 +7,10 @@ using UnityEngine;
 
 namespace MailPranks
 {
-    [BepInPlugin(Id, "Mail Pranks", "0.2.7")]
+    [BepInPlugin(Id, "Mail Pranks", Version)]
     public sealed class Plugin : BaseUnityPlugin
     {
-        public const string Id = "gharkz.elin.mailpranks";
+        public const string Id = "gharkz.elin.mailpranks", Version = "0.2.8";
         internal static Plugin Instance;
         internal static Sprite LedgerSprite;
         private Harmony harmony;
@@ -31,13 +31,14 @@ namespace MailPranks
             }
             harmony = new Harmony(Id);
             harmony.PatchAll(typeof(Plugin).Assembly);
-            Logger.LogInfo("Mail Pranks 0.2.7 loaded.");
+            Support.BugReport.Init("Mail Pranks", Id, Version, Id);
+            Logger.LogInfo("Mail Pranks " + Version + " loaded.");
         }
-        internal void ReportMoonError(Exception error) => Logger.LogError(error);
+        internal void ReportMoonError(Exception error) { Logger.LogError(error); Support.BugReport.Note(error); }
         internal static void Guard(Action action)
         {
             try { action(); }
-            catch (Exception ex) { Instance.Logger.LogError(ex); Instance.faulted = true; Dialog.Ok(Text.Error); }
+            catch (Exception ex) { Instance.Logger.LogError(ex); Support.BugReport.Note(ex); Instance.faulted = true; Dialog.Ok(Text.Error); }
         }
         private void Update()
         {
