@@ -10,7 +10,7 @@ namespace MailPranks
     [BepInPlugin(Id, "Mail Pranks", Version)]
     public sealed class Plugin : BaseUnityPlugin
     {
-        public const string Id = "gharkz.elin.mailpranks", Version = "0.2.8";
+        public const string Id = "gharkz.elin.mailpranks", Version = "0.2.9";
         internal static Plugin Instance;
         internal static Sprite LedgerSprite;
         private Harmony harmony;

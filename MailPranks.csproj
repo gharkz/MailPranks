@@ -3,7 +3,7 @@
     <TargetFramework>net472</TargetFramework>
     <LangVersion>latest</LangVersion>
     <Authors>gharkz</Authors>
-    <Version>0.2.8</Version>
+    <Version>0.2.9</Version>
     <ElinGamePath Condition="'$(ElinGamePath)' == ''">X:/SteamLibrary/steamapps/common/Elin</ElinGamePath>
     <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
@@ -35,6 +35,7 @@
     <Reference Include="$(ElinGamePath)/BepInEx/core/BepInEx.Unity.dll" Private="false" />
     <Reference Include="$(ElinGamePath)/BepInEx/core/0Harmony.dll" Private="false" />
     <None Include="package.xml" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="LICENSE" CopyToOutputDirectory="PreserveNewest" />
     <None Include="preview.jpg" CopyToOutputDirectory="PreserveNewest" />
     <None Include="assets/ledger.png" CopyToOutputDirectory="PreserveNewest" Condition="Exists('assets/ledger.png')" />
   </ItemGroup>
